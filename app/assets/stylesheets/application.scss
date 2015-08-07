@@ -16,5 +16,9 @@
 
 @import "materialize";
 @import "materialize/components/color";
-$primary-color: color("blue", "lighten-2") !default;
+$primary-color: color("red", "darken-4") !default;
 @import 'materialize';
+
+.btn {
+  width: 100%;
+}

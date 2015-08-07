@@ -1,37 +1,47 @@
-<h1>Complain About Something</h1>
-<%= form_for :complaint, url: complaints_path do |f| %>
-  <% if @complaint.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@complaint.errors.count, "error") %> prohibited
-        this complaint from being saved:
-      </h2>
-      <ul>
-        <% @complaint.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+<div class="container">
+
+  <h1>Complain About Something</h1>
+  <div class="row">
+    <div class="col s12">
+      <%= form_for :complaint, url: complaints_path do |f| %>
+        <% if @complaint.errors.any? %>
+          <div id="error_explanation">
+            <h2>
+              <%= pluralize(@complaint.errors.count, "error") %> prohibited
+              this complaint from being saved:
+            </h2>
+            <ul>
+              <% @complaint.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
+
+        <p>
+          <%= f.label "Who is the Complaint about?" %><br>
+          <%= f.text_field :to %>
+        </p>
+
+        <p>
+          <%= f.label "What is your complaint?" %><br>
+          <%= f.text_area :text %>
+        </p>
+
+        <p>
+          <%= f.label "Who are you?" %><br>
+          <%= f.text_field :from %>
+        </p>
+
+        <p>
+          <%= f.submit "Complain", class: "waves-effect waves-light btn red darken-4" %>
+        </p>
+      <% end %>
     </div>
-  <% end %>
-
-  <p>
-    <%= f.label "Who is the Complaint about?" %><br>
-    <%= f.text_field :to %>
-  </p>
-
-  <p>
-    <%= f.label "What is your complaint?" %><br>
-    <%= f.text_area :text %>
-  </p>
-
-  <p>
-    <%= f.label "Who are you?" %><br>
-    <%= f.text_field :from %>
-  </p>
-
-  <p>
-    <%= f.submit ( "Complain"), class: "btn" %>
-  </p>
-<% end %>
-
-<%= link_to 'Back', complaints_path, class:"waves-effect waves-light btn" %>
+  </div>
+  <div class="row">
+    <div class="col s12">
+      <%= link_to 'Back', complaints_path, class:"waves-effect waves-light btn blue darken-4" %>
+    </div>
+  </div>
+</div>
