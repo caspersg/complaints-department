@@ -1,5 +1,19 @@
 <h1>Complain About Something</h1>
 <%= form_for :complaint, url: complaints_path do |f| %>
+  <% if @complaint.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@complaint.errors.count, "error") %> prohibited
+        this complaint from being saved:
+      </h2>
+      <ul>
+        <% @complaint.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <p>
     <%= f.label "Who is the Complaint about?" %><br>
     <%= f.text_field :to %>
@@ -19,3 +33,5 @@
     <%= f.submit ( "Complain"), class: "btn" %>
   </p>
 <% end %>
+
+<%= link_to 'Back', complaints_path %>

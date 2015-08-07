@@ -1,0 +1,20 @@
+<h1>The Complaints Department</h1>
+
+<%= link_to 'Make a Complaint', new_complaint_path %>
+
+<h2>Complaints</h2>
+<table>
+  <tr>
+    <th>To</th>
+    <th>Complaint</th>
+    <th>From</th>
+  </tr>
+
+  <% @complaints.each do |complaint| %>
+    <tr>
+      <td><%= complaint.to %></td>
+      <td><%= complaint.text %></td>
+      <td><%= complaint.from %></td>
+    </tr>
+  <% end %>
+</table>
