@@ -48,8 +48,3 @@ end
 ruby "2.2.2"
 
 gem 'puma'
-
-# polymer-rails does not support sprockets 3 yet
-gem 'sprockets', "< 3.0.0"
-gem 'polymer-rails'
-gem 'polymer-paper-rails'

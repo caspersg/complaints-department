@@ -10,7 +10,6 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require polymer/webcomponents
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
