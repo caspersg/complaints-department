@@ -1,6 +1,6 @@
 class ComplaintsController < ApplicationController
   def index
-    @complaints = Complaint.paginate(page: params[:id])
+    @complaints = Complaint.page(params[:page]).order('created_at DESC')
   end
 
   def show
@@ -15,7 +15,7 @@ class ComplaintsController < ApplicationController
     @complaint = Complaint.new(complaint_params)
 
     if @complaint.save
-      redirect_to @complaint
+      redirect_to action: 'index'
     else
       render 'new'
     end
