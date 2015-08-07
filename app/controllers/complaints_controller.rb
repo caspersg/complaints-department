@@ -1,6 +1,6 @@
 class ComplaintsController < ApplicationController
   def index
-    @complaints = Complaint.all
+    @complaints = Complaint.paginate(page: params[:id])
   end
 
   def show
